@@ -64,7 +64,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 	   try {
 		   return clienteDAO.consultarClientes();
 	   }catch(PersistenceException e) {
-		   throw new UnsupportedOperationException("no ser pudo consultar clientes.",e);
+		   throw new ExcepcionServiciosAlquiler("no ser pudo consultar clientes.",e);
 	   }
 	   
        
@@ -81,31 +81,56 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
    @Override
    public List<Item> consultarItemsDisponibles() {
-       throw new UnsupportedOperationException("Not supported yet.");
+       try{
+           return itemDAO.consultarItemsDisponibles();
+       }catch(UnsupportedOperationException ex){
+           throw new UnsupportedOperationException("Error al consultar items ",ex);
+       }
+       
    }
 
    @Override
    public long consultarMultaAlquiler(int iditem, Date fechaDevolucion) throws ExcepcionServiciosAlquiler {
-       throw new UnsupportedOperationException("Not supported yet.");
+       try{
+           return itemDAO.multaAlquiler(iditem,fechaDevolucion);
+       }catch(PersistenceException ex){
+           throw new ExcepcionServiciosAlquiler("Error al consultar multa alquiler "+iditem,ex);
+       }
+       
    }
 
    @Override
    public TipoItem consultarTipoItem(int id) throws ExcepcionServiciosAlquiler {
-       throw new UnsupportedOperationException("Not supported yet.");
+       try {
+           return itemDAO.tipoItem(id);
+       }catch(PersistenceException ex){
+           throw new ExcepcionServiciosAlquiler("Error al consultar tipo item "+id,ex);
+       }
+       
    }
 
    @Override
    public List<TipoItem> consultarTiposItem() throws ExcepcionServiciosAlquiler {
-       throw new UnsupportedOperationException("Not supported yet.");
+       try{
+           return null;
+       }catch(PersistenceException ex){
+           throw new ExcepcionServiciosAlquiler("Error al consultar los tipos Items ");
+       } 
    }
 
    @Override
    public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler {
-       throw new UnsupportedOperationException("Not supported yet.");
+       try{
+           clienteDAO.registrarAlquilerCliente(date, docu, item, numdias);
+       }catch(PersistenceException ex){
+           throw new UnsupportedOperationException("No se puede registrar el alquiler "+item,ex);
+       }
+       
    }
 
    @Override
    public void registrarCliente(Cliente c) throws ExcepcionServiciosAlquiler {
+       
        throw new UnsupportedOperationException("Not supported yet.");
    }
 

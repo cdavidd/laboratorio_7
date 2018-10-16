@@ -5,6 +5,8 @@ import com.google.inject.Inject;
 import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.ClienteMapper;
 import edu.eci.pdsw.samples.entities.Cliente;
 import edu.eci.pdsw.sampleprj.dao.ClienteDAO;
+import edu.eci.pdsw.samples.entities.Item;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -46,5 +48,10 @@ public class MyBATISClienteDAO implements ClienteDAO{
 		  }
 		
 	}
+
+    @Override
+    public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws PersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }
