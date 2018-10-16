@@ -7,6 +7,7 @@ import com.google.inject.Inject;
 import edu.eci.pdsw.sampleprj.dao.TipoItemDAO;
 import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.TipoItemMapper;
 import edu.eci.pdsw.samples.entities.TipoItem;
+import java.util.List;
 
 public class MyBATISTipoItemDAO implements TipoItemDAO{
 	@Inject
@@ -30,5 +31,15 @@ public class MyBATISTipoItemDAO implements TipoItemDAO{
 		}
 		
 	}
+
+    @Override
+    public TipoItem consultarTipoItem(int id) throws PersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<TipoItem> consultarTiposItem() throws PersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 }

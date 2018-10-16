@@ -62,12 +62,17 @@ public class MyBATISItemDAO implements ItemDAO{
     }
 
     @Override
-    public TipoItem tipoItem(int id) throws PersistenceException {
+    public long consultarCostoAlquiler(int iditem, int numdias) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<TipoItem> consultarTiposItem() throws PersistenceException {
+    public void actualizarTarifaItem(int id, long tarifa) throws PersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void registrarItem(Item i) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

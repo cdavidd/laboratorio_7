@@ -16,4 +16,8 @@ public interface ClienteDAO {
 	public List<Cliente> consultarClientes() throws PersistenceException;
         
         public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws PersistenceException;
+        
+        public void registrarCliente(Cliente c) throws PersistenceException;
+        
+        public void vetarCliente(long docu, boolean estado) throws PersistenceException;
 }

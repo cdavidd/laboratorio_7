@@ -18,8 +18,10 @@ public interface ItemDAO {
    
    public long multaAlquiler(int iditem, Date fechaDevolucion) throws PersistenceException;
    
-   public TipoItem tipoItem(int id) throws PersistenceException;
+   public long consultarCostoAlquiler(int iditem, int numdias) throws PersistenceException;
    
-   public List<TipoItem> consultarTiposItem() throws PersistenceException;
+   public void actualizarTarifaItem(int id, long tarifa) throws PersistenceException;
+   
+   public void registrarItem(Item i) throws PersistenceException;
    
 }
