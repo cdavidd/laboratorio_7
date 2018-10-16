@@ -47,4 +47,11 @@
         WHERE 
             VI_ITEMRENTADO.ITEMS_id IS NULL OR (NOW()<VI_ITEMRENTADO.fechainiciorenta OR NOW()>VI_ITEMRENTADO.fechafinrenta)
     </select>
+    
+     <select id="multaAlquiler" parameterType="Item" resultMap="Itemresult">
+        SELECT DATEDIFF(fechafinrenta,#{fechaDevolucion} )  
+            FROM VI_ITEMRENTADO 
+            WHERE ITEMS_id=#{iditem}
+    </select>
+    
 </mapper>   

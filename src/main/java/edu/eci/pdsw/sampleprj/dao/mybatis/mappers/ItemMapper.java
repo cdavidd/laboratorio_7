@@ -2,6 +2,7 @@ package edu.eci.pdsw.sampleprj.dao.mybatis.mappers;
 
 
 import edu.eci.pdsw.samples.entities.Item;
+import java.sql.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,5 +21,6 @@ public interface ItemMapper {
     
     public List<Item> consultarItemsDisponibles(); 
 
+    public long multaAlquiler(@Param("iditem") int iditem, @Param("fechaDevolucion") Date fechaDevolucion);
         
 }
