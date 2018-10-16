@@ -60,7 +60,7 @@ public class MyBATISItemDAO implements ItemDAO{
   		throw new PersistenceException("Error al consultar ItemsDisponibles ",e);
   		}
   	}
-    }
+    
 
     @Override
     public long multaAlquiler(int iditem, Date fechaDevolucion) throws PersistenceException {

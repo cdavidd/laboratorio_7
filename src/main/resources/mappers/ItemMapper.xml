@@ -6,9 +6,9 @@
 <mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.ItemMapper">
 	
 	<resultMap id = "Itemresult" type = "Item">
-	   <id property = "id" column = "id"/>
-	   <result property = "nombre" column = "item__nombre"/>
-	   <result property = "descripcion" column = "descripcion"/>
+	   <id property = "id" column = "i_id"/>
+	   <result property = "nombre" column = "i_nombre"/>
+	   <result property = "descripcion" column = "i_descripcion"/>
 	   <result property = "fechaLanzamiento" column = "fechalanzamiento"/>
 	   <result property = "tarifaxDia" column = "tarifaxdia"/>
 	   <result property = "formatoRenta" column = "formatorenta"/>
