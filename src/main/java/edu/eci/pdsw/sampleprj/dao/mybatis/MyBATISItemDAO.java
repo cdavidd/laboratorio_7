@@ -53,7 +53,13 @@ public class MyBATISItemDAO implements ItemDAO{
 
     @Override
     public List<Item> consultarItemsDisponibles() throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+  		return itemMapper.consultarItemsDisponibles();
+  		}
+  	catch(org.apache.ibatis.exceptions.PersistenceException e){
+  		throw new PersistenceException("Error al consultar ItemsDisponibles ",e);
+  		}
+  	}
     }
 
     @Override
