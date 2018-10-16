@@ -128,7 +128,6 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
        }catch(PersistenceException ex){
            throw new UnsupportedOperationException("No se puede registrar el alquiler "+item,ex);
        }
-       
    }
 
    @Override
