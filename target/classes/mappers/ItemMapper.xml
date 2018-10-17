@@ -19,7 +19,7 @@
     <insert id="insertarItem" >
 	  insert into VI_ITEMS (TIPOITEM_id, id, nombre,descripcion, fechalanzamiento,tarifaxdia,formatorenta,genero)
 	  values (#{item.tipo.id} ,#{item.id},#{item.nombre},#{item.descripcion},#{item.fechaLanzamiento},#{item.tarifaxDia},#{item.formatoRenta},#{item.genero})
-	</insert>   
+    </insert>   
 
 
     <select id="consultarItems" parameterType="Item" resultMap="Itemresult">
@@ -55,7 +55,7 @@
     	SELECT 
             i.id AS vi_id,
             nombre AS vi_nombre, 
-            descripcion,
+            descripcion AS i_descripcion,
             fechalanzamiento,
             tarifaxdia,
             formatorenta,
@@ -68,12 +68,13 @@
             ir.ITEMS_id IS NULL OR (NOW() ‘&lt;’ ir.fechainiciorenta OR NOW() ‘&gt;’ ir.fechafinrenta)
     </select>
     
-     <select id="multaAlquiler" parameterType="long" resultMap="map"  >
+    <select id="multaAlquiler" parameterType="java.lang.Long">
          SELECT tarifaxdia*DATEDIFF(fechafinrenta,#{fechaDevolucion}) 
          FROM VI_ITEMRENTADO LEFT JOIN VI_ITEMS on VI_ITEMRENTADO.ITEMS_id=VI_ITEMS.id 
          WHERE ITEMS_id=#{iditem}
     </select>
-    <select id="consultarCostoAlquiler" parameterType="long" resultMap="map"  >
+    
+    <select id="consultarCostoAlquiler" parameterType="java.lang.Long" >
          SELECT tarifaxdia*#{iditem} FROM   VI_ITEMS where id=#{numdias}
     </select>
     
