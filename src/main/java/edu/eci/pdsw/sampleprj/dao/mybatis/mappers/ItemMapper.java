@@ -22,5 +22,6 @@ public interface ItemMapper {
     public List<Item> consultarItemsDisponibles(); 
 
     public long multaAlquiler(@Param("iditem") int iditem, @Param("fechaDevolucion") Date fechaDevolucion);
+    
     public long consultarCostoAlquiler(@Param("iditem") int iditem, @Param("numdias") int numdias);
 }
