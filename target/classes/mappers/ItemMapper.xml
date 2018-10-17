@@ -20,17 +20,35 @@
 	  insert into VI_ITEMS (TIPOITEM_id, id, nombre,descripcion, fechalanzamiento,tarifaxdia,formatorenta,genero)
 	  values (#{item.tipo.id} ,#{item.id},#{item.nombre},#{item.descripcion},#{item.fechaLanzamiento},#{item.tarifaxDia},#{item.formatoRenta},#{item.genero})
 	</insert>   
-    
+
 
     <select id="consultarItems" parameterType="Item" resultMap="Itemresult">
-    	SELECT *
-			FROM VI_ITEMS left join VI_TIPOITEM   on VI_ITEMS.TIPOITEM_id=VI_TIPOITEM.id
+    	SELECT 
+                i.id AS i_id ,
+                i.nombre AS i_nombre,
+                i.descripcion AS i_descripcion,
+                i.fechalanzamiento,
+                i.tarifaxdia,
+                i.formatorenta,
+                i.genero,
+                ti.id AS ti_id,
+                ti.descripcion AS ti_descripcion
+	FROM VI_ITEMS AS i left join VI_TIPOITEM   AS ti on i.TIPOITEM_id=ti.id
     </select>
     
     <select id="consultarItem" parameterType="Item" resultMap="Itemresult">
-    	SELECT *
-			FROM VI_ITEMS left join VI_TIPOITEM   on VI_ITEMS.TIPOITEM_id=VI_TIPOITEM.id
-			WHERE VI_ITEMS.id=#{id}
+    	SELECT
+                i.id AS i_id ,
+                i.nombre AS i_nombre,
+                i.descripcion AS i_descripcion,
+                i.fechalanzamiento,
+                i.tarifaxdia,
+                i.formatorenta,
+                i.genero,
+                ti.id AS ti_id,
+                ti.descripcion AS ti_descripcion 
+		FFROM VI_ITEMS AS i left join VI_TIPOITEM   AS ti on i.TIPOITEM_id=ti.id
+		WHERE VI_ITEMS.id=#{id}
     </select>
     
     <select id="consultarItemsDisponibles" parameterType="Item" resultMap="Itemresult">
@@ -48,12 +66,12 @@
             VI_ITEMRENTADO.ITEMS_id IS NULL OR (NOW()<VI_ITEMRENTADO.fechainiciorenta OR NOW()>VI_ITEMRENTADO.fechafinrenta)
     </select>
     
-     <select id="multaAlquiler" parameterType="long" resultMap="Itemresult"  >
+     <select id="multaAlquiler" parameterType="long" resultMap="map"  >
          SELECT tarifaxdia*DATEDIFF(fechafinrenta,#{fechaDevolucion}) 
          FROM VI_ITEMRENTADO LEFT JOIN VI_ITEMS on VI_ITEMRENTADO.ITEMS_id=VI_ITEMS.id 
          WHERE ITEMS_id=#{iditem}
     </select>
-    <select id="consultarCostoAlquiler" parameterType="long" resultMap="Itemresult"  >
+    <select id="consultarCostoAlquiler" parameterType="long" resultMap="map"  >
          SELECT tarifaxdia*#{iditem} FROM   VI_ITEMS where id=#{numdias}
     </select>
     

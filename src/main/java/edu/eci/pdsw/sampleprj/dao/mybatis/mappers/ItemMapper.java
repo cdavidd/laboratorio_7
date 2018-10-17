@@ -24,5 +24,6 @@ public interface ItemMapper {
     public long multaAlquiler(@Param("iditem") int iditem, @Param("fechaDevolucion") Date fechaDevolucion);
     
     public long consultarCostoAlquiler(@Param("iditem") int iditem, @Param("numdias") int numdias);
+    
     public void actualizarTarifaItem(@Param("id")  int id, @Param("tarifa")long tarifa);
 }
