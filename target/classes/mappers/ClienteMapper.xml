@@ -72,11 +72,35 @@
 	    WHERE c.documento=#{idcli}
 	</select>
 	
-	<insert id="agregarItemRentadoACliente"  >
+	<insert id="agregarItemRentadoACliente">
 	  insert into VI_ITEMRENTADO (CLIENTES_documento, ITEMS_id, fechainiciorenta,fechafinrenta)
 	  values (#{id},#{idit},#{fechaInicio},#{fechaFin})
 	</insert>
+        
+        <insert id="agregarCliente">
+            INSERT INTO VI_CLIENTES (documento, nombre, telefono, direccion, email, vetado) 
+            VALUES (#{cliente.documento}, #{cliente.nombre}, #{cliente.telefono}, #{cliente.direccion}, #{cliente.email}, #{cliente.vetado})
+        </insert>
 	
+        <insert id="registrarAlquilerCliente">
+            INSERT INTO VI_ITEMRENTADO (CLIENTES_documento, ITEMS_id, fechainiciorenta, fechafinrenta)
+            VALUES (#{docu}, #{item.id}, #{date}, DATE_ADD(#{date}, INTERVAL #{numdias} DAY))
+        </insert>
+        
+        <insert id="registrarCliente">
+            INSERT INTO VI_CLIENTES (documento, nombre, telefono, direccion, email, vetado) 
+            VALUES (#{c.documento}, #{c.nombre}, #{c.telefono}, #{c.direccion}, #{c.email}, #{c.vetado})
+        </insert>
+        
+        <update>
+            UPDATE 
+                VI_CLIENTES 
+            SET 
+                vetado = #{estado} 
+            WHERE 
+                documento = #{ducu} 
+        </update>
+        
 	<resultMap id = "ClienteResult" type = "Cliente">
 	   <id property = "documento" column = "documento"/>
 	   <result property = "nombre" column = "nombre"/>

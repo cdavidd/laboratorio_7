@@ -14,7 +14,7 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface ClienteMapper {
     
-    public Cliente consultarCliente(@Param("idcli") int id);  //
+    public Cliente consultarCliente(@Param("idcli") int id);  //--
     
     /**
      * Registrar un nuevo item rentado asociado al cliente identificado
@@ -33,18 +33,14 @@ public interface ClienteMapper {
      * Consultar todos los clientes
      * @return 
      */
-    public List<Cliente> consultarClientes(); //
+    public List<Cliente> consultarClientes(); // --
     
-    public void agregarCliente(@Param("cliente") Cliente cli); //
+    public void agregarCliente(@Param("cliente") Cliente cli); // --
     
-    public void registrarAlquilerCliente(@Param("date") Date date,@Param("docu") long docu,@Param("item") Item item,@Param("numdias") int numdias); //
+    public void registrarAlquilerCliente(@Param("date") Date date,@Param("docu") long docu,@Param("item") Item item,@Param("numdias") int numdias); // --
     
-    public void registrarCliente(@Param("c") Cliente c); //
+    public void registrarCliente(@Param("c") Cliente c); // --
     
-    public void vetarCliente(@Param("ducu") long docu,@Param("estado") boolean estado); //
+    public void vetarCliente(@Param("ducu") long docu,@Param("estado") boolean estado); // --
     
 }
-    
-    
-    
-   
