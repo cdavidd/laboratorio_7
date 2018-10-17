@@ -53,17 +53,19 @@
     
     <select id="consultarItemsDisponibles" parameterType="Item" resultMap="Itemresult">
     	SELECT 
-        id AS vi_id
-        nombre AS vi_nombre 
-        descripcion
-        fechalanzamiento
-        tafifaxdia
-        formatorenta
-        genero
-        TIPOITEM_id
-        FROM VI_ITEMS LEFT OUTER JOIN VI_ITEMRENTADO ON VI_ITEMS.id=VI_ITEMRENTADO.ITEMS_id 
+            i.id AS vi_id,
+            nombre AS vi_nombre, 
+            descripcion,
+            fechalanzamiento,
+            tarifaxdia,
+            formatorenta,
+            genero,
+            TIPOITEM_id
+        FROM 
+            VI_ITEMS AS i LEFT JOIN VI_ITEMRENTADO AS ir 
+                    ON i.id=ir.ITEMS_id 
         WHERE 
-            VI_ITEMRENTADO.ITEMS_id IS NULL OR (NOW()<VI_ITEMRENTADO.fechainiciorenta OR NOW()>VI_ITEMRENTADO.fechafinrenta)
+            ir.ITEMS_id IS NULL OR (NOW() ‘&lt;’ ir.fechainiciorenta OR NOW() ‘&gt;’ ir.fechafinrenta)
     </select>
     
      <select id="multaAlquiler" parameterType="long" resultMap="map"  >
