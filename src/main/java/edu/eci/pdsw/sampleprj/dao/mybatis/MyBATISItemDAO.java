@@ -71,12 +71,18 @@ public class MyBATISItemDAO implements ItemDAO{
   		throw new PersistenceException("Error al consultar ItemsDisponibles ",e);
   		}
   	}
-    }
+    
 
     @Override
     public long consultarCostoAlquiler(int iditem, int numdias) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        try{
+  		return itemMapper.consultarCostoAlquiler(iditem,numdias);
+  		}
+  	catch(org.apache.ibatis.exceptions.PersistenceException e){
+  		throw new PersistenceException("Error al consultar ItemsDisponibles ",e);
+  		}
+  	}
+    
 
     @Override
     public void actualizarTarifaItem(int id, long tarifa) throws PersistenceException {
@@ -87,8 +93,8 @@ public class MyBATISItemDAO implements ItemDAO{
     public void registrarItem(Item i) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }
+
 
   
 

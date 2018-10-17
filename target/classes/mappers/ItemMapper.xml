@@ -48,10 +48,12 @@
             VI_ITEMRENTADO.ITEMS_id IS NULL OR (NOW()<VI_ITEMRENTADO.fechainiciorenta OR NOW()>VI_ITEMRENTADO.fechafinrenta)
     </select>
     
-     <select id="multaAlquiler" parameterType="Item" resultMap="Itemresult">
+     <select id="multaAlquiler" parameterType="long" resultMap="Itemresult"  >
          SELECT tarifaxdia*DATEDIFF(fechafinrenta,#{fechaDevolucion}) 
          FROM VI_ITEMRENTADO LEFT JOIN VI_ITEMS on VI_ITEMRENTADO.ITEMS_id=VI_ITEMS.id 
          WHERE ITEMS_id=#{iditem}
     </select>
-    
+    <select id="consultarCostoAlquiler" parameterType="long" resultMap="Itemresult"  >
+         SELECT tarifaxdia*#{iditem} FROM   VI_ITEMS where id=#{numdias}
+    </select>
 </mapper>   

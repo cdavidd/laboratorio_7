@@ -12,10 +12,10 @@ import org.apache.ibatis.annotations.Param;
 public interface TipoItemMapper {
     
     
-    public List<TipoItem> getTiposItems();
+    public List<TipoItem> getTiposItems(); // --
     
-    public TipoItem getTipoItem(int id);
+    public TipoItem getTipoItem(@Param("id") int id); // --
     
-    public void addTipoItem(@Param("tipoItem") String des);
+    public void addTipoItem(@Param("tipoItem") String des); // --
 
 }
