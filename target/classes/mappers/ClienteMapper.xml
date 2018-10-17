@@ -92,7 +92,7 @@
             VALUES (#{c.documento}, #{c.nombre}, #{c.telefono}, #{c.direccion}, #{c.email}, #{c.vetado})
         </insert>
         
-        <update>
+        <update id="vetarCliente">
             UPDATE 
                 VI_CLIENTES 
             SET 
