@@ -56,4 +56,14 @@
     <select id="consultarCostoAlquiler" parameterType="long" resultMap="Itemresult"  >
          SELECT tarifaxdia*#{iditem} FROM   VI_ITEMS where id=#{numdias}
     </select>
+    
+    <update id="actualizarTarifaItem">
+            UPDATE 
+                VI_ITEMS 
+            SET 
+                tarifaxdia = #{tarifa} 
+            WHERE 
+                id = #{id} 
+    </update>
+  
 </mapper>   

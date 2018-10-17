@@ -10,9 +10,9 @@ public interface TipoItemDAO {
 
     public TipoItem load(int id) throws PersistenceException;
     
-    public TipoItem consultarTipoItem(int id) throws PersistenceException;
+    public TipoItem consultarTipoItem(int id) throws PersistenceException; //
     
-    public List<TipoItem> consultarTiposItem() throws PersistenceException;
+    public List<TipoItem> consultarTiposItem() throws PersistenceException; //
            
 
 }
