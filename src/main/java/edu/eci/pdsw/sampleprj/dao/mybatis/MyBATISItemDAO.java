@@ -86,12 +86,23 @@ public class MyBATISItemDAO implements ItemDAO{
 
     @Override
     public void actualizarTarifaItem(int id, long tarifa) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+       try{
+  		itemMapper.actualizarTarifaItem(id,tarifa);
+  		}
+  	catch(org.apache.ibatis.exceptions.PersistenceException e){
+  		throw new PersistenceException("Error al consultar ItemsDisponibles ",e);
+  		}
+  	}
+    
 
     @Override
     public void registrarItem(Item i) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            itemMapper.insertarItem(i);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al registrar el item "+i.toString(),e);
+        }
     }
 }
 
