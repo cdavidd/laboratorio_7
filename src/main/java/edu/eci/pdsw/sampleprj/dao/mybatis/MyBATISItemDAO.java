@@ -64,7 +64,13 @@ public class MyBATISItemDAO implements ItemDAO{
 
     @Override
     public long multaAlquiler(int iditem, Date fechaDevolucion) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       try{
+  		return itemMapper.multaAlquiler(iditem,fechaDevolucion);
+  		}
+  	catch(org.apache.ibatis.exceptions.PersistenceException e){
+  		throw new PersistenceException("Error al consultar ItemsDisponibles ",e);
+  		}
+  	}
     }
 
     @Override

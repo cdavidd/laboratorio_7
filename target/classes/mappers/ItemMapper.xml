@@ -49,9 +49,9 @@
     </select>
     
      <select id="multaAlquiler" parameterType="Item" resultMap="Itemresult">
-        SELECT DATEDIFF(fechafinrenta,#{fechaDevolucion} )  
-            FROM VI_ITEMRENTADO 
-            WHERE ITEMS_id=#{iditem}
+         SELECT tarifaxdia*DATEDIFF(fechafinrenta,#{fechaDevolucion}) 
+         FROM VI_ITEMRENTADO LEFT JOIN VI_ITEMS on VI_ITEMRENTADO.ITEMS_id=VI_ITEMS.id 
+         WHERE ITEMS_id=#{iditem}
     </select>
     
 </mapper>   
