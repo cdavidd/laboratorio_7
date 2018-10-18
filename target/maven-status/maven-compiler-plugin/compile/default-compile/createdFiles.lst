@@ -1,4 +1,5 @@
 edu\eci\pdsw\samples\services\ServiciosAlquiler.class
+edu\eci\pdsw\guice\GuiceContextListener.class
 edu\eci\pdsw\samples\services\ExcepcionServiciosAlquiler.class
 edu\eci\pdsw\sampleprj\dao\mybatis\mappers\TipoItemMapper.class
 edu\eci\pdsw\samples\services\ServiciosAlquilerFactory.class
@@ -16,6 +17,7 @@ edu\eci\pdsw\sampleprj\dao\mybatis\mappers\ItemMapper.class
 edu\eci\pdsw\sampleprj\dao\ItemDAO.class
 edu\eci\pdsw\sampleprj\dao\mybatis\MyBATISClienteDAO.class
 edu\eci\pdsw\samples\entities\TipoItem.class
+edu\eci\pdsw\guice\GuiceContextListener$1.class
 edu\eci\pdsw\samples\entities\Cliente.class
 edu\eci\pdsw\samples\services\impl\ServiciosAlquilerImpl.class
 edu\eci\pdsw\sampleprj\dao\mybatis\MyBATISItemDAO.class
