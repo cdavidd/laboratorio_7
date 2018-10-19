@@ -26,14 +26,19 @@ public class Item implements Serializable{
         this.tipo = tipo;
         this.id = id;
         this.nombre = nombre;
-        this.descripcion = descripcion;
+       
         this.fechaLanzamiento = fechaLanzamiento;
         this.tarifaxDia = tarifaxDia;
         this.formatoRenta = formatoRenta;
         this.genero = genero;
     }
 
-    public Item() {
+    public Item(TipoItem tipo, int id, String nombre,  long tarifaxDia, String descripcion) {
+        this.tipo = tipo;
+        this.id = id;
+        this.nombre = nombre;
+        this.tarifaxDia = tarifaxDia;
+       this.descripcion = descripcion;
     }
 
     

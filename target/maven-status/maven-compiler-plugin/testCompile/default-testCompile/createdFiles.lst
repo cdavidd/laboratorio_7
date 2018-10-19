@@ -1,1 +1,5 @@
+edu\eci\pdsw\tests\GeneratorItem.class
 edu\eci\pdsw\tests\TestBase.class
+edu\eci\pdsw\tests\ServiciosAlquilerTest.class
+edu\eci\pdsw\tests\GeneratorCliente.class
+edu\eci\pdsw\tests\GeneratorTypeItem.class
