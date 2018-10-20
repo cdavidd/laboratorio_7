@@ -41,7 +41,9 @@ public class Item implements Serializable{
        this.descripcion = descripcion;
     }
 
-    
+    public Item() {
+    	
+    }
     
     
     public TipoItem getTipo() {
