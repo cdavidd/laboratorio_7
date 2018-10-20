@@ -16,6 +16,7 @@ edu\eci\pdsw\sampleprj\dao\mybatis\mappers\ClienteMapper.class
 edu\eci\pdsw\sampleprj\dao\mybatis\mappers\ItemMapper.class
 edu\eci\pdsw\sampleprj\dao\ItemDAO.class
 edu\eci\pdsw\sampleprj\dao\mybatis\MyBATISClienteDAO.class
+edu\eci\pdsw\view\RegistroClienteBean.class
 edu\eci\pdsw\samples\entities\TipoItem.class
 edu\eci\pdsw\guice\GuiceContextListener$1.class
 edu\eci\pdsw\samples\entities\Cliente.class
