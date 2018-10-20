@@ -7,6 +7,7 @@
     <groupId>samples_mybatis-guice</groupId>
     <artifactId>MyBATIS-Guice-DAO-VideorentalServicesLayer</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
     <dependencies>
 	
@@ -216,6 +217,7 @@
                 <version>2.2</version>
                 <configuration>
                     <port>8080</port>
+                    <uriEncoding>UTF-8</uriEncoding>
                     <path>/</path>
                 </configuration>
             </plugin>

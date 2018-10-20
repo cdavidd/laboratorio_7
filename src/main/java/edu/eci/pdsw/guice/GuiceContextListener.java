@@ -35,10 +35,11 @@ public class GuiceContextListener implements ServletContextListener {
                 // TODO Add service class associated to Stub implementation
                 //bind(AAA.class).to(YYY.class);
                 //bind(BBB.class).to(ZZZ.class
-                //bind(ItemDAO.class).to(MyBATISItemDAO.class);
-                //bind(ClienteDAO.class).to(MyBATISClienteDAO.class);
-                //bind(TipoItemDAO.class).to(MyBATISTipoItemDAO.class);
-                bind(ServiciosAlquiler.class).to(ServiciosAlquilerItemsStub.class);
+                bind(ServiciosAlquiler.class).to(ServiciosAlquilerImpl.class);
+                bind(ItemDAO.class).to(MyBATISItemDAO.class);
+                bind(ClienteDAO.class).to(MyBATISClienteDAO.class);
+                bind(TipoItemDAO.class).to(MyBATISTipoItemDAO.class);
+                
             }   
         });
 
