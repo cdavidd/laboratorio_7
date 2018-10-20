@@ -13,7 +13,6 @@ import edu.eci.pdsw.samples.services.ServiciosAlquiler;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.servlet.annotation.WebServlet;
 
 /**
  *
@@ -22,7 +21,6 @@ import javax.servlet.annotation.WebServlet;
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "registroClienteBean")
 @SessionScoped
-@WebServlet(urlPatterns = "/validate")
 public class RegistroClienteBean extends BasePageBean{
     
     @Inject
