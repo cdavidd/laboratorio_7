@@ -72,9 +72,9 @@ public class MyBatisExample {
         SqlSession sqlss = sessionfact.openSession();
 
         ClienteMapper cm=sqlss.getMapper(ClienteMapper.class);
-        System.out.println(cm.consultarClientes());
+        //System.out.println(cm.consultarClientes());
         //3.
-        //System.out.println(cm.consultarCliente(12345));
+        //System.out.println(cm.consultarCliente(123456));
         
         SimpleDateFormat fecha1= new SimpleDateFormat("dd-M-yyyy");
         String fechaInicio="09-01-2018";
@@ -96,6 +96,10 @@ public class MyBatisExample {
         //System.out.println(im.consultarItems());
         //System.out.println(im.consultarItem(1));
         
+        //---------------------lab 7-----------------
+        
+        //consultas items cliente
+        //System.out.println(cm.consultarItemsCliente(123456));
         
         sqlss.commit();
         

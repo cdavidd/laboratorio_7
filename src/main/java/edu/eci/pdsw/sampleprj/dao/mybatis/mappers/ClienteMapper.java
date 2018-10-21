@@ -2,6 +2,7 @@ package edu.eci.pdsw.sampleprj.dao.mybatis.mappers;
 
 import edu.eci.pdsw.samples.entities.Cliente;
 import edu.eci.pdsw.samples.entities.Item;
+import edu.eci.pdsw.samples.entities.ItemRentado;
 
 
 import java.util.Date;
@@ -42,5 +43,7 @@ public interface ClienteMapper {
     public void registrarCliente(@Param("c") Cliente c); // --
     
     public void vetarCliente(@Param("ducu") long docu,@Param("estado") boolean estado); // --
+    
+    public List<ItemRentado> consultarItemsCliente(@Param("idcl") long idcliente);
     
 }

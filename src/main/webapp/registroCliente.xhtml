@@ -30,6 +30,9 @@
                 <p:column headerText="Vetado">
                     <h:outputText value="#{cliente.vetado}" />
                 </p:column>
+                <p:column headerText="Alquiler">
+                    <p:button outcome="registroAlquiler?documento=#{cliente.documento}" value="Alquileres" />
+		</p:column>
             </p:dataTable>
             
             <br></br>

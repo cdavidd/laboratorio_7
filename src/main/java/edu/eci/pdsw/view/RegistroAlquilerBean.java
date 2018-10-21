@@ -22,16 +22,23 @@ import javax.faces.bean.SessionScoped;
  * @author Luis
  */
 @SuppressWarnings("deprecation")
-@ManagedBean(name = "RegistroAlquilerBean")
+@ManagedBean(name = "registroAlquilerBean")
 @SessionScoped
 public class RegistroAlquilerBean extends BasePageBean{
-    @Inject
-    ServiciosAlquiler serviciosAlquiler;
+    
     @ManagedProperty(value = "#{param.documento}")
     private Long documento;
+    
+    @Inject
+    ServiciosAlquiler serviciosAlquiler;
+    
     public List<ItemRentado> getData() throws Exception {
-		return serviciosAlquiler.consultarItemsCliente(documento);
-	}
+        try{
+            return serviciosAlquiler.consultarItemsCliente(documento);
+        }catch(ExcepcionServiciosAlquiler ex){
+            throw ex;
+        }
+    }
     
     public void registroAlquiler(Date date, int idItem, int numdias) throws ExcepcionServiciosAlquiler{
         try{
@@ -40,5 +47,13 @@ public class RegistroAlquilerBean extends BasePageBean{
         }catch(ExcepcionServiciosAlquiler ex){
             throw ex;
         } 
+    }
+    
+    public long getDocumento(){
+        return documento;
+    }
+    
+    public void setDocumento(Long documento){
+        this.documento= documento;
     }
 }

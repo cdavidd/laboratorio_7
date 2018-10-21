@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.exceptions.PersistenceException;
 import edu.eci.pdsw.samples.entities.Cliente;
 import edu.eci.pdsw.samples.entities.Item;
+import edu.eci.pdsw.samples.entities.ItemRentado;
 import java.sql.Date;
 
 
@@ -20,4 +21,6 @@ public interface ClienteDAO {
         public void registrarCliente(Cliente c) throws PersistenceException; //
         
         public void vetarCliente(long docu, boolean estado) throws PersistenceException; //
+        
+        public List<ItemRentado> consultarItemsCliente (long idcliente) throws PersistenceException;
 }
