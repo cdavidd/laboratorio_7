@@ -8,11 +8,13 @@ package edu.eci.pdsw.view;
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Cliente;
 import edu.eci.pdsw.samples.entities.Item;
+import edu.eci.pdsw.samples.entities.ItemRentado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.pdsw.samples.services.ServiciosAlquiler;
 import java.sql.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 /**
@@ -25,18 +27,16 @@ import javax.faces.bean.SessionScoped;
 public class RegistroAlquilerBean extends BasePageBean{
     @Inject
     ServiciosAlquiler serviciosAlquiler;
+    @ManagedProperty(value = "#{param.documento}")
+    private Long documento;
+    public List<ItemRentado> getData() throws Exception {
+		return serviciosAlquiler.consultarItemsCliente(documento);
+	}
     
-    public List<Cliente> getData() throws Exception{
+    public void registroAlquiler(Date date, int idItem, int numdias) throws ExcepcionServiciosAlquiler{
         try{
-            return serviciosAlquiler.consultarClientes();
-        }catch(ExcepcionServiciosAlquiler ex){
-            throw ex;
-        }        
-    }
-    
-    public void registroAlquiler(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler{
-        try{
-            serviciosAlquiler.registrarAlquilerCliente(date, docu, item, numdias);
+            Item item =   serviciosAlquiler.consultarItem(idItem);
+            serviciosAlquiler.registrarAlquilerCliente(date, documento, item, numdias);
         }catch(ExcepcionServiciosAlquiler ex){
             throw ex;
         } 
