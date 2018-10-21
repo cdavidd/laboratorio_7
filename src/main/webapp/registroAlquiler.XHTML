@@ -9,9 +9,11 @@
             <title>Rentar Items </title>
     </h:head>
     <h:body>
+        
         <f:metadata>
                 <f:viewParam name="documento" value="#{registroAlquilerBean.documento}" />
         </f:metadata>
+        
         <h3> Id usuraio - #{registroAlquilerBean.documento}</h3>
         <h1>Items Remtados cliente</h1>
         <p:dataTable id="itemRemtado_table" var="ItemRemtado" value="#{registroAlquilerBean.data}">
