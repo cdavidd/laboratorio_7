@@ -10,24 +10,19 @@
     </h:head>
     <h:body>
         
-        <f:metadata>
-                <f:viewParam name="documento" value="#{registroAlquilerBean.documento}" />
-        </f:metadata>
-
-        <h3> Id usuraio - #{registroAlquilerBean.documento}</h3>
         <h1>Items Rentados cliente</h1>
-        <p:dataTable id="itemRemtado_table" var="ItemRemtado" value="#{registroAlquilerBean.data}">
+        <p:dataTable id="itemRemtado_table" var="itemRemtado" value="#{RegistroAlquilerBean.data}">
             <p:column headerText="Id Item Remtado">
-                <h:outputText value="#{ItemRemtado.id}" />
+                <h:outputText value="#{itemRemtado.id}" />
             </p:column>
             <p:column headerText="Nombre Item">
-                <h:outputText value="#{ItemRemtado.item.nombre}" />
+                <h:outputText value="#{itemRemtado.item.nombre}" />
             </p:column>
             <p:column headerText="Inicio de la renta">
-                <h:outputText value="#{ItemRemtado.fechainiciorenta}" />
+                <h:outputText value="#{itemRemtado.fechainiciorenta}" />
             </p:column>
             <p:column headerText="Fin de la renta">
-                <h:outputText value="#{ItemRemtado.fechafinrenta}" />
+                <h:outputText value="#{itemRemtado.fechafinrenta}" />
             </p:column>
         </p:dataTable>
 
@@ -37,13 +32,13 @@
         <br></br>
     
         <h:form>
-            <p:outputLabel>Dijite el id del item a remtar </p:outputLabel>
+            <p:outputLabel>Dijite el id del item a rentar </p:outputLabel>
             <h:inputText binding="#{item}" />
             <p:outputLabel>Dijite la fechainiciorenta, </p:outputLabel>
             <h:inputText binding="#{fechainiciorenta}" />
             <p:outputLabel>Dijite la fechafinrenta </p:outputLabel>
             <h:inputText binding="#{fechafinrenta}" />
-            <p:commandButton value="Registrar" update="itemRentado_table" actionListener="#{registroClienteBean.registroAlquiler(item.value, fechainiciorenta.value, fechafinrenta.value)}"></p:commandButton>
+            <p:commandButton value="Registrar" update="itemRemtado_table" actionListener="#{RegistroAlquilerBean.registroAlquiler(item.value, fechainiciorenta.value, fechafinrenta.value)}"></p:commandButton>
         </h:form>  
     </h:body>
 </html>
