@@ -9,8 +9,28 @@
             <title></title>
     </h:head>
     <h:body>
-            <h1>Clientes</h1>
             
+            <h1>Registrar Cliente</h1>
+            <br></br>
+            <h:form>
+                <p:outputLabel>Nombre </p:outputLabel>
+                <h:inputText binding="#{nombre}" />
+                <p:outputLabel>Documento </p:outputLabel>
+                <h:inputText binding="#{documento}" />
+                <p:outputLabel>Telefono </p:outputLabel>
+                <h:inputText binding="#{telefono}" />
+                <p:outputLabel>Direccion </p:outputLabel>
+                <h:inputText binding="#{direccion}" />
+                <p:outputLabel>Email </p:outputLabel>
+                <h:inputText binding="#{email}" /> 
+                <p:outputLabel>Vetado </p:outputLabel>
+                <h:inputText binding="#{vetado}" />
+                <p:commandButton value="Registrar" update="cliente_table" actionListener="#{registroClienteBean.addCliente(nombre.value, documento.value, telefono.value, direccion.value, email.value)}"></p:commandButton>
+            </h:form> 
+            
+            <br></br>
+            
+            <h1>Clientes</h1>
             <p:dataTable id="cliente_table" var="cliente" value="#{registroClienteBean.data}">
                 <p:column headerText="Nombre">
                     <h:outputText value="#{cliente.nombre}" />
@@ -34,26 +54,6 @@
                     <p:button outcome="registroAlquiler?documento=#{cliente.documento}" value="Alquileres" />
 		</p:column>
             </p:dataTable>
-            
-            <br></br>
-            <h1>Registrar Cliente</h1>
-            
-            <br></br>
-            <h:form>
-                <p:outputLabel>Nombre </p:outputLabel>
-                <h:inputText binding="#{nombre}" />
-                <p:outputLabel>Documento </p:outputLabel>
-                <h:inputText binding="#{documento}" />
-                <p:outputLabel>Telefono </p:outputLabel>
-                <h:inputText binding="#{telefono}" />
-                <p:outputLabel>Direccion </p:outputLabel>
-                <h:inputText binding="#{direccion}" />
-                <p:outputLabel>Email </p:outputLabel>
-                <h:inputText binding="#{email}" /> 
-                <p:outputLabel>Vetado </p:outputLabel>
-                <h:inputText binding="#{vetado}" />
-                <p:commandButton value="Registrar" update="cliente_table" actionListener="#{registroClienteBean.addCliente(nombre.value, documento.value, telefono.value, direccion.value, email.value)}"></p:commandButton>
-            </h:form>  
-            
+ 
     </h:body>
 </html>
