@@ -9,9 +9,12 @@
             <title>Rentar Items </title>
     </h:head>
     <h:body>
+        <f:metadata>
+	    <f:viewParam name="documento" value="#{registroAlquilerBean.documento}" />
+	</f:metadata>
         
         <h1>Items Rentados cliente</h1>
-        <p:dataTable id="itemRemtado_table" var="itemRemtado" value="#{RegistroAlquilerBean.data}">
+        <p:dataTable id="itemRemtado_table" var="itemRemtado" value="#{registroAlquilerBean.data}">
             <p:column headerText="Id Item Remtado">
                 <h:outputText value="#{itemRemtado.id}" />
             </p:column>
@@ -38,7 +41,7 @@
             <h:inputText binding="#{fechainiciorenta}" />
             <p:outputLabel>Dijite la fechafinrenta </p:outputLabel>
             <h:inputText binding="#{fechafinrenta}" />
-            <p:commandButton value="Registrar" update="itemRemtado_table" actionListener="#{RegistroAlquilerBean.registroAlquiler(item.value, fechainiciorenta.value, fechafinrenta.value)}"></p:commandButton>
+            <p:commandButton value="Registrar" update="itemRemtado_table" actionListener="#{registroAlquilerBean.registroAlquiler(item.value, fechainiciorenta.value, fechafinrenta.value)}"></p:commandButton>
         </h:form>  
     </h:body>
 </html>

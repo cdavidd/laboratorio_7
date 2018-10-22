@@ -5,16 +5,20 @@
  */
 package edu.eci.pdsw.view;
 
-import com.google.inject.Inject;
+
 import edu.eci.pdsw.samples.entities.Item;
 import edu.eci.pdsw.samples.entities.ItemRentado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.pdsw.samples.services.ServiciosAlquiler;
 import java.sql.Date;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+
 
 /**
  *
@@ -22,19 +26,20 @@ import javax.faces.bean.SessionScoped;
  */
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "registroAlquilerBean")
-@SessionScoped
+@RequestScoped
 public class RegistroAlquilerBean extends BasePageBean{
     
     @ManagedProperty(value = "#{param.documento}")
-    private Long documento;
+    private long documento;
     
     private static final long serialVersionUID = 3594009161252782831L;
     
     @Inject
     ServiciosAlquiler serviciosAlquiler;
     
-    public List<ItemRentado> getData() throws Exception {
+    public List<ItemRentado> getData() throws ExcepcionServiciosAlquiler {
         try{
+            
             return serviciosAlquiler.consultarItemsCliente(documento);
         }catch(ExcepcionServiciosAlquiler ex){
             throw ex;
@@ -54,7 +59,7 @@ public class RegistroAlquilerBean extends BasePageBean{
         return documento;
     }
     
-    public void setDocumento(Long documento){
+    public void setDocumento(long documento){
         this.documento= documento;
     }
 }
