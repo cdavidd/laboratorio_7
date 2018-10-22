@@ -31,7 +31,10 @@ public class RegistroAlquilerBean extends BasePageBean{
     
     
     @ManagedProperty(value = "#{param.documento}")
+    
+    
     private long documento;
+    
     private static final long serialVersionUID = 3594009161252782831L;
     
     @Inject
