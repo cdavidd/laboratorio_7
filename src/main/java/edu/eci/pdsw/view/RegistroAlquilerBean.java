@@ -6,7 +6,6 @@
 package edu.eci.pdsw.view;
 
 import com.google.inject.Inject;
-import edu.eci.pdsw.samples.entities.Cliente;
 import edu.eci.pdsw.samples.entities.Item;
 import edu.eci.pdsw.samples.entities.ItemRentado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosAlquiler;
@@ -28,6 +27,8 @@ public class RegistroAlquilerBean extends BasePageBean{
     
     @ManagedProperty(value = "#{param.documento}")
     private Long documento;
+    
+    private static final long serialVersionUID = 3594009161252782831L;
     
     @Inject
     ServiciosAlquiler serviciosAlquiler;
