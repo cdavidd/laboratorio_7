@@ -35,7 +35,7 @@ public class RegistroAlquilerBean extends BasePageBean{
     
     
     private long documento;
-    
+    private long costo;
     private static final long serialVersionUID = 3594009161252782831L;
     
     @Inject
@@ -60,6 +60,15 @@ public class RegistroAlquilerBean extends BasePageBean{
             throw ex;
         } 
     }
+    public void costoAlquiler(int idItem, int numdias) throws ExcepcionServiciosAlquiler{
+        try{
+            setCosto(serviciosAlquiler.consultarCostoAlquiler(idItem, numdias));
+        }catch(ExcepcionServiciosAlquiler ex){
+            throw ex;
+        } 
+        
+        
+    }
     
     public long getDocumento(){
         return documento;
@@ -67,5 +76,12 @@ public class RegistroAlquilerBean extends BasePageBean{
     
     public void setDocumento(long documento){
         this.documento= documento;
+    }
+    public long getCosto(){
+        return costo;
+    }
+    
+    public void setCosto(long costo){
+        this.costo= costo;
     }
 }

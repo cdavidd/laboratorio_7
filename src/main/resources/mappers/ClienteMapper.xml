@@ -121,6 +121,10 @@
             VALUES (#{docu}, #{item.id}, #{date}, DATE_ADD(#{date}, INTERVAL #{numdias} DAY))
         </insert>
         
+        
+        
+        
+        
         <insert id="registrarCliente">
             INSERT INTO VI_CLIENTES (documento, nombre, telefono, direccion, email, vetado) 
             VALUES (#{c.documento}, #{c.nombre}, #{c.telefono}, #{c.direccion}, #{c.email}, #{c.vetado})

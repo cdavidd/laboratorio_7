@@ -51,12 +51,10 @@ public class MyBATISClienteDAO implements ClienteDAO{
     }
 
     @Override
-    public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws PersistenceException {
-        try{
+    public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias)  {
+        
             clienteMapper.registrarAlquilerCliente(date, docu, item, numdias);
-        }catch(PersistenceException ex){
-            throw new PersistenceException("Error al registrar alquiler cliente "+docu);
-        }
+        
         
     }
 

@@ -77,10 +77,10 @@ public class MyBATISItemDAO implements ItemDAO{
     public long consultarCostoAlquiler(int iditem, int numdias) throws PersistenceException {
         try{
   		return itemMapper.consultarCostoAlquiler(iditem,numdias);
-  		}
+            }
   	catch(org.apache.ibatis.exceptions.PersistenceException e){
   		throw new PersistenceException("Error al consultar ItemsDisponibles ",e);
-  		}
+            }
   	}
     
 

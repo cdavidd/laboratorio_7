@@ -101,7 +101,7 @@ public class MyBatisExample {
         //consultas items cliente
         
         
-        System.out.println(im.consultarItem(1));
+        //System.out.println(im.consultarItem(1));
         
         sqlss.commit();
         
