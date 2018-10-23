@@ -48,8 +48,9 @@
                 ti.id AS ti_id,
                 ti.descripcion AS ti_descripcion 
 		FROM VI_ITEMS AS i left join VI_TIPOITEM   AS ti on i.TIPOITEM_id=ti.id
-		WHERE VI_ITEMS.id=#{id}
+		WHERE i.id=#{id}
     </select>
+    
     
     <select id="consultarItemsDisponibles" parameterType="Item" resultMap="Itemresult">
     	SELECT 

@@ -99,7 +99,9 @@ public class MyBatisExample {
         //---------------------lab 7-----------------
         
         //consultas items cliente
-        System.out.println(cm.consultarItemsCliente(12));
+        
+        
+        System.out.println(im.consultarItem(1));
         
         sqlss.commit();
         
