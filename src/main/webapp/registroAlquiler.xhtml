@@ -42,7 +42,7 @@
             <h:inputText binding="#{numdias}" />
             <br><p:outputLabel id='costoAlquiler' value="#{registroAlquilerBean.costo}"> Costo del alquiler</p:outputLabel></br>
             <p:commandButton value="Costo Alquiler" update='costoAlquiler' actionListener="#{registroAlquilerBean.costoAlquiler(item.value, numdias.value)}"></p:commandButton>
-            <p:commandButton value="Registrar" update="itemRemtado_table" actionListener="#{registroAlquilerBean.registroAlquiler(item.value, numdias.value)}"></p:commandButton>
+            <p:commandButton value="Registrar" update="itemRemtado_table" actionListener="#{registroAlquilerBean.registroAlquiler(item.value, numdias.value)}" action="registroCliente"></p:commandButton>
             
             
         </h:form>  
