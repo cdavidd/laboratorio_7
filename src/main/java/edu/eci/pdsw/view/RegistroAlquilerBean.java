@@ -51,6 +51,7 @@ public class RegistroAlquilerBean extends BasePageBean{
     
     public void registroAlquiler(Date date, int idItem, int numdias) throws ExcepcionServiciosAlquiler{
         try{
+            System.out.println("a");
             Item item =   serviciosAlquiler.consultarItem(idItem);
             serviciosAlquiler.registrarAlquilerCliente(date, documento, item, numdias);
         }catch(ExcepcionServiciosAlquiler ex){
