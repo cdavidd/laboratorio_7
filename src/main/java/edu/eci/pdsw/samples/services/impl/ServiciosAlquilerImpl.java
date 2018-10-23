@@ -143,7 +143,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
    @Override
    public long consultarCostoAlquiler(int iditem, int numdias) throws ExcepcionServiciosAlquiler {
        try{
-           return itemDAO.consultarCostoAlquiler(iditem, numdias);
+           return valorMultaRetrasoxDia(iditem)*numdias;
        }catch(PersistenceException ex){
            throw new ExcepcionServiciosAlquiler("Error al consultar costo alguiler "+iditem);
        }
