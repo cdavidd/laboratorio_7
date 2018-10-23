@@ -38,11 +38,9 @@
         <h:form>
             <p:outputLabel>Dijite el id del item a rentar </p:outputLabel>
             <h:inputText binding="#{item}" />
-            <p:outputLabel>Dijite numero de unidades, </p:outputLabel>
-            <h:inputText binding="#{numunidades}" />
-            <p:outputLabel>Dijite la fechafinrenta </p:outputLabel>
-            <h:inputText binding="#{fechafinrenta}" />
-            <p:commandButton value="Registrar" update="itemRemtado_table" actionListener="#{registroAlquilerBean.registroAlquiler(fechafinrenta.value, item.value, numunidades.value)}"></p:commandButton>
+            <p:outputLabel>Dijite numero de dias, </p:outputLabel>
+            <h:inputText binding="#{numdias}" />
+            <p:commandButton value="Registrar" update="itemRemtado_table" actionListener="#{registroAlquilerBean.registroAlquiler(item.value, numdias.value)}"></p:commandButton>
         </h:form>  
     </h:body>
 </html>

@@ -75,6 +75,7 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
    @Override
    public Item consultarItem(int id) throws ExcepcionServiciosAlquiler {
        try {
+           System.out.println(id);
            return itemDAO.load(id);
        } catch (PersistenceException ex) {
            throw new ExcepcionServiciosAlquiler("Error al consultar el item "+id,ex);

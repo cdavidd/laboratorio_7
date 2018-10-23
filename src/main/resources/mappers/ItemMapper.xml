@@ -36,7 +36,7 @@
 	FROM VI_ITEMS AS i left join VI_TIPOITEM   AS ti on i.TIPOITEM_id=ti.id
     </select>
     
-    <select id="consultarItem" parameterType="Item" resultMap="Itemresult">
+    <select id="consultarItem" parameterType="map" resultMap="Itemresult">
     	SELECT
                 i.id AS i_id ,
                 i.nombre AS i_nombre,
@@ -47,7 +47,7 @@
                 i.genero,
                 ti.id AS ti_id,
                 ti.descripcion AS ti_descripcion 
-		FFROM VI_ITEMS AS i left join VI_TIPOITEM   AS ti on i.TIPOITEM_id=ti.id
+		FROM VI_ITEMS AS i left join VI_TIPOITEM   AS ti on i.TIPOITEM_id=ti.id
 		WHERE VI_ITEMS.id=#{id}
     </select>
     

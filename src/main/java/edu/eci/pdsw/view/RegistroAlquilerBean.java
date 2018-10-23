@@ -11,6 +11,7 @@ import edu.eci.pdsw.samples.entities.ItemRentado;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosAlquiler;
 import edu.eci.pdsw.samples.services.ServiciosAlquiler;
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -49,10 +50,11 @@ public class RegistroAlquilerBean extends BasePageBean{
         }
     }
     
-    public void registroAlquiler(Date date, int idItem, int numdias) throws ExcepcionServiciosAlquiler{
+    public void registroAlquiler(int idItem, int numdias) throws ExcepcionServiciosAlquiler{
         try{
-            System.out.println("a");
+            java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
             Item item =   serviciosAlquiler.consultarItem(idItem);
+
             serviciosAlquiler.registrarAlquilerCliente(date, documento, item, numdias);
         }catch(ExcepcionServiciosAlquiler ex){
             throw ex;
